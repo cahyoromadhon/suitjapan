@@ -18,6 +18,21 @@ function getHasil(comp, Cahyo) {
 	if (Cahyo == 'kertas') return (comp == 'batu') ? 'MENANG' : 'KALAH';
 }
 
+function putar() {
+	const imgComputer = document.querySelector('.img-komputer');
+	const gambar = ['batu', 'gunting', 'kertas'];
+	let i = 0;
+	const waktuMulai = new Date().getTime();
+	setInterval(function () {
+		if (new Date().getTime() - waktuMulai > 1000) {
+			clearInterval;
+			return;
+		}
+		imgComputer.setAttribute('src', 'img/' + gambar[i++] + '.jpg');
+		if (i == gambar.length) i = 0;
+	}, 100)
+}
+
 const pilihanCahyo = document.querySelectorAll('li img');
 pilihanCahyo.forEach(function (pil1) {
 	pil1.addEventListener('click', function () {
@@ -25,13 +40,18 @@ pilihanCahyo.forEach(function (pil1) {
 		const pilihanCahyo = pil1.className;
 		const hasil = getHasil(pilihanBot, pilihanCahyo);
 
-		// Ubah Gambar Komputer
-		const imgBot = document.querySelector('.img-komputer');
-		imgBot.setAttribute('src', pilihanBot + '.jpg');
+		putar()
 
-		// Munculkan Hasil
-		const info = document.querySelector('.info');
-		info.innerHTML = hasil;
+		setTimeout(function () {
+			// Ubah Gambar Komputer
+			const imgBot = document.querySelector('.img-komputer');
+			imgBot.setAttribute('src', 'img/' + pilihanBot + '.jpg');
+
+			// Munculkan Hasil
+			const info = document.querySelector('.info');
+			info.innerHTML = hasil;
+		}, 1000);
+
 	});
 });
 
