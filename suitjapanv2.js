@@ -49,9 +49,8 @@ pilihanCahyo.forEach(function (pil1) {
 
 			// Munculkan Hasil
 			const info = document.querySelector('.info');
-			info.innerHTML = hasil;
+			info.innerHTML = hasil.replace('KALAH', 'K&nbsp;A&nbsp;L&nbsp;A&nbsp;H');
 		}, 1000);
-
 	});
 });
 
