@@ -1,0 +1,2 @@
+Repository ini dibuat oleh Owner dari buah hasil pembelajaran Javascript DOM
+Program ini adalah satu dari sekian banyaknya Program-Program lain yang telah dibuat oleh Owner namun si Owner memutuskan untuk membuat sebuah Repo di Github dan memilih program ini karena dirasa cukup bagus
