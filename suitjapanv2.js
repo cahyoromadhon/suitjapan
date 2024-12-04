@@ -4,6 +4,41 @@
 // Menyiapkan pilihan komputer
 // aturan
 
+// Fungsi untuk menampilkan hasil menggunakan SweetAlert
+function tampilkanHasil(hasil) {
+	if (hasil === 'MENANG') {
+		Swal.fire({
+			title: 'Selamat!',
+			text: 'Anda memenangkan permainan!',
+			icon: 'success',
+			confirmButtonText: 'Main Lagi'
+		});
+	} else if (hasil === 'KALAH') {
+		Swal.fire({
+			title: 'Oh Tidak!',
+			text: 'Anda kalah. Coba lagi!',
+			icon: 'error',
+			confirmButtonText: 'Main Lagi'
+		});
+	} else {
+		Swal.fire({
+			title: 'Seri!',
+			text: 'Hasilnya seri. Coba lagi!',
+			icon: 'info',
+			confirmButtonText: 'Main Lagi'
+		});
+	}
+}
+
+// Fungsi lainnya
+function getPilihanBot() {
+	const comp = Math.random();
+	if (comp < 0.34) return 'batu';
+	if (comp >= 0.34 && comp < 0.67) return 'gunting';
+	return 'kertas';
+}
+
+
 function getPilihanBot() {
 	const comp = Math.random();
 	if (comp < 0.34) return 'batu';
@@ -46,6 +81,8 @@ pilihanCahyo.forEach(function (pil1) {
 			// Ubah Gambar Komputer
 			const imgBot = document.querySelector('.img-komputer');
 			imgBot.setAttribute('src', 'img/' + pilihanBot + '.jpg');
+
+			tampilkanHasil(hasil);
 
 			// Munculkan Hasil
 			const info = document.querySelector('.info');
